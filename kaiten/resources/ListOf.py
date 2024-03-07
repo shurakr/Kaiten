@@ -81,7 +81,7 @@ class ListOf:
         if ids_only:
             return list_of_columns_ids
         else:
-            return [Column(None, None, i) for i in list_of_columns_dict]
+            return [Column(i) for i in list_of_columns_dict]
     
     def subcolumns(self, column_id, ids_only = False ):
         api_url = f"{self.client.base_api_url}/columns/{column_id}/subcolumns"
@@ -91,17 +91,17 @@ class ListOf:
         if ids_only:
             return list_of_subcolumns_ids
         else:
-            return [SubColumn(None, None, i) for i in list_of_subcolumns_dict]
+            return [SubColumn(i) for i in list_of_subcolumns_dict]
 
     def propertyvalues(self, property_id, ids_only=False):
-        api_url = f"{self.client.base_api_url}/custom-properties/{property_id}/select-values"
+        api_url = f"{self.client.base_api_url}/company/custom-properties/{property_id}/select-values"
         list_of_values_request = requests.get(api_url, headers=self.client.headers)
         list_of_values_dict = list_of_values_request.json()
         list_of_values_ids = [i['id'] for i in list_of_values_dict]
         if ids_only:
             return list_of_values_ids
         else:
-            return [PropertyValues(None, None, i) for i in list_of_values_dict]
+            return [PropertyValues(i) for i in list_of_values_dict]
 
     def services(self):
         return "services"
