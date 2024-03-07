@@ -68,10 +68,15 @@ properties = client.list_of().properties()
 
 ### List of Columns
 ```
-properties = client.list_of().columns()
+columns = client.list_of().columns()
 ```
 
 ### List of SubColumns
 ```
-properties = client.list_of().subcolumns()
+subcolumns = client.list_of().subcolumns()
+```
+
+### List of PropertyValues
+```
+propertyvalues = client.list_of().propertyvalues()
 ```
